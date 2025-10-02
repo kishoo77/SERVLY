@@ -207,7 +207,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
               <div className="space-y-3">
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">اللون الأساسي</label>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 space-x-reverse">
                     <input
                       type="color"
                       value={selectedWebsite?.content.colors.primary || '#8B5CF6'}
@@ -232,7 +232,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
                 </div>
                 <div>
                   <label className="block text-xs text-gray-600 mb-1">اللون الثانوي</label>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 space-x-reverse">
                     <input
                       type="color"
                       value={selectedWebsite?.content.colors.secondary || '#FFFFFF'}
@@ -325,7 +325,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
                 ].map((component, index) => (
                   <button
                     key={index}
-                    className="w-full flex items-center space-x-3 space-x-reverse p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors text-right"
+                    className="w-full flex items-center space-x-3 space-x-reverse space-x-reverse p-3 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors text-right"
                   > {/* Added dark:bg-gray-700, dark:hover:bg-gray-600, dark:text-gray-300 */}
                     <component.icon className="w-4 h-4 text-gray-600" />
                     <span className="text-sm text-gray-700">{component.name}</span>
@@ -346,7 +346,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
                   alert('تم حفظ التغييرات بنجاح!');
                 }
               }}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+              className="w-full flex items-center justify-center space-x-2 space-x-reverse px-4 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
             >
               <Save className="w-4 h-4" />
               <span>حفظ التغييرات</span>
@@ -459,7 +459,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
             </ol>
           </div>
           
-          <div className="flex justify-end space-x-4 space-x-reverse">
+          <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
             <button
               onClick={() => setShowDomainModal(false)} // Added dark:bg-gray-700, dark:text-gray-300, dark:hover:bg-gray-600
               className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
@@ -538,7 +538,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
                 <p className="text-gray-600 text-sm mb-4">{template.description}</p>
                 <div className="space-y-1">
                   {template.features.slice(0, 3).map((feature, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-xs text-gray-600">
+                    <div key={index} className="flex items-center space-x-2 space-x-reverse text-xs text-gray-600">
                       <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
                       <span>{feature}</span>
                     </div>
@@ -549,7 +549,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
           ))}
         </div>
         
-        <div className="flex justify-end space-x-4 space-x-reverse">
+        <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
           <button
             onClick={() => {
               setShowTemplateModal(false);
@@ -583,16 +583,16 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100" dir="rtl">
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/80 dark:bg-gray-800/80 border-b border-purple-100 dark:border-gray-700 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4 text-gray-900 dark:text-gray-100">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
+                  className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" /> {/* Added dark:bg-gray-700, dark:text-gray-300, dark:hover:bg-gray-600 */}
                   <span>العودة</span>
@@ -600,10 +600,10 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
               )}
               <h1 className="text-2xl font-bold text-gray-900">منشئ المواقع الإلكترونية</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               <button 
                 onClick={() => setShowTemplateModal(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+                className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
               >
                 <Plus className="w-5 h-5" />
                 <span>إنشاء موقع جديد</span>
@@ -803,7 +803,7 @@ const WebsiteBuilder: React.FC<WebsiteBuilderProps> = ({ onBack }) => {
                         <p className="text-gray-600 text-sm mb-4">{template.description}</p>
                         <div className="space-y-1 mb-4">
                           {template.features.map((feature, index) => (
-                            <div key={index} className="flex items-center space-x-2 text-xs text-gray-600">
+                            <div key={index} className="flex items-center space-x-2 space-x-reverse text-xs text-gray-600">
                               <div className="w-1 h-1 bg-purple-500 rounded-full"></div>
                               <span>{feature}</span>
                             </div>

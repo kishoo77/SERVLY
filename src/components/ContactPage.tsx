@@ -53,16 +53,16 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100" dir="rtl">
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/80 dark:bg-gray-800/80 border-b border-purple-100 dark:border-gray-700 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="flex items-center space-x-2 space-x-reverse space-x-reverse px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   <span>العودة</span>
@@ -210,7 +210,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center space-x-2 px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full flex items-center justify-center space-x-2 space-x-reverse px-6 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -235,7 +235,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">معلومات التواصل</h3>
               
               <div className="space-y-6">
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 space-x-reverse">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="w-6 h-6 text-purple-600" />
                   </div>
@@ -246,7 +246,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 space-x-reverse">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-6 h-6 text-purple-600" />
                   </div>
@@ -257,7 +257,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 space-x-reverse">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-purple-600" />
                   </div>
@@ -268,7 +268,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 space-x-reverse">
                   <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Clock className="w-6 h-6 text-purple-600" />
                   </div>
@@ -286,22 +286,22 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">تابعنا على</h3>
               
               <div className="grid grid-cols-2 gap-4">
-                <button className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors">
+                <button className="flex items-center space-x-3 space-x-reverse p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors">
                   <Facebook className="w-6 h-6 text-blue-600" />
                   <span className="font-medium text-gray-900 dark:text-white">Facebook</span>
                 </button>
                 
-                <button className="flex items-center space-x-3 p-4 bg-sky-50 dark:bg-sky-900/20 hover:bg-sky-100 dark:hover:bg-sky-900/30 rounded-xl transition-colors">
+                <button className="flex items-center space-x-3 space-x-reverse p-4 bg-sky-50 dark:bg-sky-900/20 hover:bg-sky-100 dark:hover:bg-sky-900/30 rounded-xl transition-colors">
                   <Twitter className="w-6 h-6 text-sky-600" />
                   <span className="font-medium text-gray-900 dark:text-white">Twitter</span>
                 </button>
                 
-                <button className="flex items-center space-x-3 p-4 bg-pink-50 dark:bg-pink-900/20 hover:bg-pink-100 dark:hover:bg-pink-900/30 rounded-xl transition-colors">
+                <button className="flex items-center space-x-3 space-x-reverse p-4 bg-pink-50 dark:bg-pink-900/20 hover:bg-pink-100 dark:hover:bg-pink-900/30 rounded-xl transition-colors">
                   <Instagram className="w-6 h-6 text-pink-600" />
                   <span className="font-medium text-gray-900 dark:text-white">Instagram</span>
                 </button>
                 
-                <button className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors">
+                <button className="flex items-center space-x-3 space-x-reverse p-4 bg-blue-50 dark:bg-blue-900/20 hover:bg-blue-100 dark:hover:bg-blue-900/30 rounded-xl transition-colors">
                   <Linkedin className="w-6 h-6 text-blue-700" />
                   <span className="font-medium text-gray-900 dark:text-white">LinkedIn</span>
                 </button>
@@ -312,7 +312,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ onBack }) => {
             <div className="backdrop-blur-xl bg-gradient-to-r from-purple-600 to-purple-700 rounded-3xl shadow-lg p-8 text-white">
               <h3 className="text-2xl font-bold mb-4">تحتاج مساعدة فورية؟</h3>
               <p className="mb-6 opacity-90">تواصل معنا عبر الواتساب للحصول على رد سريع</p>
-              <button className="flex items-center space-x-3 px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
+              <button className="flex items-center space-x-3 space-x-reverse px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
                 <MessageCircle className="w-6 h-6" />
                 <span className="font-medium">واتساب: +20 100 123 4567</span>
               </button>

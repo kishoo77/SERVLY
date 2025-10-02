@@ -188,7 +188,7 @@ function App() {
         </div>
         
         <div className="space-y-4 mb-6">
-          <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-xl">
+          <div className="flex items-center space-x-4 space-x-reverse p-4 bg-purple-50 rounded-xl">
             <Phone className="w-6 h-6 text-purple-600" />
             <div>
               <p className="font-medium text-gray-900">{t.phone}</p>
@@ -196,7 +196,7 @@ function App() {
             </div>
           </div>
           
-          <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-xl">
+          <div className="flex items-center space-x-4 space-x-reverse p-4 bg-purple-50 rounded-xl">
             <Mail className="w-6 h-6 text-purple-600" />
             <div>
               <p className="font-medium text-gray-900">{t.email}</p>
@@ -204,7 +204,7 @@ function App() {
             </div>
           </div>
           
-          <div className="flex items-center space-x-4 p-4 bg-purple-50 rounded-xl">
+          <div className="flex items-center space-x-4 space-x-reverse p-4 bg-purple-50 rounded-xl">
             <MapPin className="w-6 h-6 text-purple-600" />
             <div>
               <p className="font-medium text-gray-900">{t.address}</p>
@@ -311,12 +311,12 @@ function App() {
     const { monthlyRevenue, loading: payrollLoading } = usePayroll();
 
     return (
-    <div className={`min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 ${language === 'ar' ? 'rtl' : 'ltr'}`}>
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100" dir={language === 'ar' ? 'rtl' : 'ltr'}>
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/60 dark:bg-gray-800/60 border-b border-white/20 dark:border-gray-700 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl flex items-center justify-center">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
@@ -383,7 +383,7 @@ function App() {
                     </div>
                     <button
                       onClick={handleLogout}
-                      className="w-full text-right px-4 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex items-center space-x-2"
+                      className="w-full text-right px-4 py-2 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors flex items-center space-x-2 space-x-reverse"
                     >
                       <span className="text-red-600">🚪</span>
                       تسجيل الخروج

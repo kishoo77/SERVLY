@@ -436,7 +436,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
 
   const RatingStars = ({ rating }: { rating: number }) => {
     return (
-      <div className="flex items-center space-x-1">
+      <div className="flex items-center space-x-1 space-x-reverse">
         {[1, 2, 3, 4, 5].map((star) => (
           <Star
             key={star}
@@ -465,16 +465,16 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
   }));
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50" dir="rtl">
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/80 border-b border-purple-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
+                  className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   <span>العودة</span>
@@ -482,10 +482,10 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
               )}
               <h1 className="text-2xl font-bold text-gray-900">نظام إدارة الموارد البشرية</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               <button 
                 onClick={() => setShowAddEmployee(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+                className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
               >
                 <Plus className="w-5 h-5" />
                 <span>إضافة موظف</span>
@@ -500,28 +500,28 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <button 
             onClick={() => setShowAttendanceModal(true)}
-            className="flex items-center space-x-3 bg-blue-50 hover:bg-blue-100 rounded-2xl p-4 transition-colors"
+            className="flex items-center space-x-3 space-x-reverse bg-blue-50 hover:bg-blue-100 rounded-2xl p-4 transition-colors"
           >
             <Clock className="w-5 h-5 text-blue-600" />
             <span className="text-sm font-medium text-blue-800">تسجيل حضور</span>
           </button>
           <button 
             onClick={() => setShowLeaveModal(true)}
-            className="flex items-center space-x-3 bg-green-50 hover:bg-green-100 rounded-2xl p-4 transition-colors"
+            className="flex items-center space-x-3 space-x-reverse bg-green-50 hover:bg-green-100 rounded-2xl p-4 transition-colors"
           >
             <Calendar className="w-5 h-5 text-green-600" />
             <span className="text-sm font-medium text-green-800">طلب إجازة</span>
           </button>
           <button 
             onClick={() => exportData('payroll')}
-            className="flex items-center space-x-3 bg-purple-50 hover:bg-purple-100 rounded-2xl p-4 transition-colors"
+            className="flex items-center space-x-3 space-x-reverse bg-purple-50 hover:bg-purple-100 rounded-2xl p-4 transition-colors"
           >
             <DollarSign className="w-5 h-5 text-purple-600" />
             <span className="text-sm font-medium text-purple-800">كشف الرواتب</span>
           </button>
           <button 
             onClick={() => exportData('employees')}
-            className="flex items-center space-x-3 bg-orange-50 hover:bg-orange-100 rounded-2xl p-4 transition-colors"
+            className="flex items-center space-x-3 space-x-reverse bg-orange-50 hover:bg-orange-100 rounded-2xl p-4 transition-colors"
           >
             <Download className="w-5 h-5 text-orange-600" />
             <span className="text-sm font-medium text-orange-800">تصدير التقارير</span>
@@ -543,7 +543,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
+                className={`flex items-center space-x-2 space-x-reverse px-6 py-4 text-sm font-medium border-b-2 transition-colors whitespace-nowrap ${
                   activeTab === tab.id
                     ? 'border-purple-500 text-purple-600'
                     : 'border-transparent text-gray-500 hover:text-gray-700'
@@ -603,7 +603,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-sm text-gray-600 mb-1">متوسط الأداء</p>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 space-x-reverse">
                           <p className="text-2xl font-bold text-gray-900">{avgPerformance.toFixed(1)}</p>
                           <RatingStars rating={Math.round(avgPerformance)} />
                         </div>
@@ -623,7 +623,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                       {departmentDistribution.map((dept, index) => (
                         <div key={index} className="flex items-center justify-between">
                           <span className="text-gray-700">{dept.name}</span>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center space-x-2 space-x-reverse">
                             <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
                               <div 
                                 className="h-full bg-purple-500 rounded-full"
@@ -660,17 +660,17 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 <div className="backdrop-blur-xl bg-white/60 rounded-3xl border border-white/20 shadow-lg p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">النشاط الأخير</h3>
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-3 p-3 bg-green-50 rounded-xl">
+                    <div className="flex items-center space-x-3 space-x-reverse p-3 bg-green-50 rounded-xl">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       <span className="text-sm text-gray-700">تم تسجيل حضور أحمد محمد علي</span>
                       <span className="text-xs text-gray-500 mr-auto">منذ 5 دقائق</span>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 bg-blue-50 rounded-xl">
+                    <div className="flex items-center space-x-3 space-x-reverse p-3 bg-blue-50 rounded-xl">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <span className="text-sm text-gray-700">تم اعتماد إجازة سارة أحمد حسن</span>
                       <span className="text-xs text-gray-500 mr-auto">منذ 15 دقيقة</span>
                     </div>
-                    <div className="flex items-center space-x-3 p-3 bg-purple-50 rounded-xl">
+                    <div className="flex items-center space-x-3 space-x-reverse p-3 bg-purple-50 rounded-xl">
                       <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                       <span className="text-sm text-gray-700">تم إضافة تقييم أداء جديد</span>
                       <span className="text-xs text-gray-500 mr-auto">منذ 30 دقيقة</span>
@@ -714,7 +714,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                   {filteredEmployees.map((employee) => (
                     <div key={employee.id} className="backdrop-blur-xl bg-white/60 rounded-3xl border border-white/20 shadow-lg p-6">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 space-x-reverse">
                           <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
                             <span className="text-purple-800 font-medium">
                               {employee.name.split(' ')[0][0]}
@@ -904,7 +904,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                             </td>
                             <td className="px-6 py-4">
                               {leave.status === 'pending' && (
-                                <div className="flex space-x-2">
+                                <div className="flex space-x-2 space-x-reverse">
                                   <button
                                     onClick={() => updateLeaveStatus(leave.id, 'approved')}
                                     className="text-green-600 hover:text-green-900 text-sm"
@@ -1220,7 +1220,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 </div>
               </div>
               
-              <div className="flex justify-end space-x-4 space-x-reverse">
+              <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
                 <button
                   type="button"
                   onClick={() => setShowAddEmployee(false)}
@@ -1419,7 +1419,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 </div>
               </div>
               
-              <div className="flex justify-end space-x-4 space-x-reverse">
+              <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
                 <button
                   type="button"
                   onClick={() => setShowAttendanceModal(false)}
@@ -1509,7 +1509,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 />
               </div>
               
-              <div className="flex justify-end space-x-4 space-x-reverse">
+              <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
                 <button
                   type="button"
                   onClick={() => setShowLeaveModal(false)}
@@ -1567,7 +1567,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">التقييم (1-5)</label>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 space-x-reverse">
                     <input
                       type="range"
                       min="1"
@@ -1576,7 +1576,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                       onChange={(e) => setNewPerformance(prev => ({ ...prev, rating: parseInt(e.target.value) }))}
                       className="flex-1"
                     />
-                    <div className="flex items-center space-x-1">
+                    <div className="flex items-center space-x-1 space-x-reverse">
                       <RatingStars rating={newPerformance.rating} />
                       <span className="text-sm font-medium text-gray-900 mr-2">{newPerformance.rating}</span>
                     </div>
@@ -1616,7 +1616,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 />
               </div>
               
-              <div className="flex justify-end space-x-4 space-x-reverse">
+              <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
                 <button
                   type="button"
                   onClick={() => setShowPerformanceModal(false)}
@@ -1683,7 +1683,7 @@ const HRDashboard: React.FC<HRDashboardProps> = ({ onBack }) => {
                 />
               </div>
               
-              <div className="flex justify-end space-x-4 space-x-reverse">
+              <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse">
                 <button
                   type="button"
                   onClick={() => setShowDeductionModal(false)}

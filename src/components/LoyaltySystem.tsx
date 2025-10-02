@@ -267,7 +267,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
           </div>
         </div>
 
-        <div className="flex justify-end space-x-4 space-x-reverse mt-8">
+        <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse mt-8">
           <button
             onClick={() => setShowAddCustomer(false)}
             className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
@@ -436,7 +436,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
           )}
         </div>
 
-        <div className="flex justify-end space-x-4 space-x-reverse mt-8">
+        <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse mt-8">
           <button
             onClick={() => setShowAddPoints(false)}
             className="px-6 py-3 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
@@ -586,7 +586,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
           </div>
         </div>
 
-        <div className="flex justify-end space-x-4 space-x-reverse mt-8">
+        <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse mt-8">
           <button
             onClick={() => {
               setShowRewardModal(false);
@@ -722,14 +722,14 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
               <div className="space-y-3">
                 {Object.entries(levelDistribution).map(([level, count]) => (
                   <div key={level} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 space-x-reverse">
                       <div 
                         className="w-4 h-4 rounded-full"
                         style={{ backgroundColor: getLevelColor(level) }}
                       ></div>
                       <span className="font-medium">{getLevelName(level)}</span>
                     </div>
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 space-x-reverse">
                       <span className="font-bold">{count}</span>
                       <span className="text-sm text-gray-500">
                         ({totalCustomers > 0 ? Math.round((count / totalCustomers) * 100) : 0}%)
@@ -746,7 +746,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
               <div className="space-y-3">
                 {topCustomers.map((customer, index) => (
                   <div key={customer.id} className="flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center space-x-3 space-x-reverse">
                       <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
                         <span className="text-purple-800 font-bold text-sm">{index + 1}</span>
                       </div>
@@ -769,7 +769,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
               <h4 className="text-lg font-bold text-gray-900 mb-4">النشاط الأخير</h4>
               <div className="space-y-3">
                 {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-start space-x-3">
+                  <div key={index} className="flex items-start space-x-3 space-x-reverse">
                     <div className="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-900">{activity.description}</p>
@@ -807,7 +807,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
             </div>
           </div>
 
-          <div className="flex justify-end space-x-4 space-x-reverse mt-8">
+          <div className="flex justify-end space-x-4 space-x-reverse space-x-reverse mt-8">
             <button
               onClick={() => {
                 const reportData = {
@@ -837,7 +837,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                 
                 alert('تم تصدير التقرير بنجاح!');
               }}
-              className="px-6 py-3 bg-green-100 text-green-800 rounded-xl hover:bg-green-200 transition-colors flex items-center space-x-2"
+              className="px-6 py-3 bg-green-100 text-green-800 rounded-xl hover:bg-green-200 transition-colors flex items-center space-x-2 space-x-reverse"
             >
               <Download className="w-4 h-4" />
               <span>تصدير التقرير</span>
@@ -855,16 +855,16 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50" dir="rtl">
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/80 border-b border-purple-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
+                  className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   <span>العودة</span>
@@ -872,10 +872,10 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
               )}
               <h1 className="text-2xl font-bold text-gray-900">نظام نقاط الولاء</h1>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               <button 
                 onClick={() => setShowAddCustomer(true)}
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+                className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
               >
                 <UserPlus className="w-5 h-5" />
                 <span>إضافة عميل</span>
@@ -951,7 +951,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <button 
               onClick={() => setShowAddCustomer(true)}
-              className="flex items-center space-x-3 bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-4 transition-all duration-300 group"
+              className="flex items-center space-x-3 space-x-reverse bg-gradient-to-r from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 rounded-2xl p-4 transition-all duration-300 group"
             >
               <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <UserPlus className="w-5 h-5 text-white" />
@@ -961,7 +961,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
             
             <button 
               onClick={() => setShowAddPoints(true)}
-              className="flex items-center space-x-3 bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-2xl p-4 transition-all duration-300 group"
+              className="flex items-center space-x-3 space-x-reverse bg-gradient-to-r from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 rounded-2xl p-4 transition-all duration-300 group"
             >
               <div className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Plus className="w-5 h-5 text-white" />
@@ -971,7 +971,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
             
             <button 
               onClick={() => setShowRewardModal(true)}
-              className="flex items-center space-x-3 bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-4 transition-all duration-300 group"
+              className="flex items-center space-x-3 space-x-reverse bg-gradient-to-r from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 rounded-2xl p-4 transition-all duration-300 group"
             >
               <div className="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Gift className="w-5 h-5 text-white" />
@@ -981,7 +981,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
             
             <button 
               onClick={() => setShowReports(true)}
-              className="flex items-center space-x-3 bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-2xl p-4 transition-all duration-300 group"
+              className="flex items-center space-x-3 space-x-reverse bg-gradient-to-r from-orange-50 to-orange-100 hover:from-orange-100 hover:to-orange-200 rounded-2xl p-4 transition-all duration-300 group"
             >
               <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                 <BarChart3 className="w-5 h-5 text-white" />
@@ -1049,14 +1049,14 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                         const percentage = customers.length > 0 ? (count / customers.length) * 100 : 0;
                         return (
                           <div key={level} className="flex items-center justify-between">
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-3 space-x-reverse">
                               <div 
                                 className="w-4 h-4 rounded-full"
                                 style={{ backgroundColor: config.color }}
                               ></div>
                               <span className="font-medium">{config.name}</span>
                             </div>
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center space-x-2 space-x-reverse">
                               <span className="font-bold">{count}</span>
                               <span className="text-sm text-gray-500">({percentage.toFixed(1)}%)</span>
                             </div>
@@ -1074,7 +1074,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                         .slice(0, 5)
                         .map((customer, index) => (
                           <div key={customer.id} className="flex items-center justify-between">
-                            <div className="flex items-center space-x-3">
+                            <div className="flex items-center space-x-3 space-x-reverse">
                               <div className="w-8 h-8 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center">
                                 <span className="text-purple-800 font-bold text-sm">{index + 1}</span>
                               </div>
@@ -1096,14 +1096,14 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                 <div className="bg-white/60 rounded-2xl p-6 border border-gray-200">
                   <h4 className="text-lg font-bold text-gray-900 mb-4">النشاط الأخير</h4>
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-4 p-4 bg-green-50 rounded-xl">
+                    <div className="flex items-center space-x-4 space-x-reverse p-4 bg-green-50 rounded-xl">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       <div className="flex-1">
                         <p className="text-sm font-medium text-gray-900">تم إضافة عميل جديد: {customers[customers.length - 1]?.name}</p>
                         <p className="text-xs text-gray-500">منذ دقائق</p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-4 p-4 bg-blue-50 rounded-xl">
+                    <div className="flex items-center space-x-4 space-x-reverse p-4 bg-blue-50 rounded-xl">
                       <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <div className="flex-1">
                         <p className="text-sm font-medium text-gray-900">تم إنشاء مكافأة جديدة</p>
@@ -1121,7 +1121,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                   <h3 className="text-lg font-bold text-gray-900">جميع العملاء</h3>
                   <button 
                     onClick={() => setShowAddCustomer(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+                    className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                     <span>إضافة عميل</span>
@@ -1185,7 +1185,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                         {/* Apple Wallet Card */}
                         <div className="bg-black rounded-xl p-4 text-white">
                           <div className="flex items-center justify-between mb-3">
-                            <div className="flex items-center space-x-2">
+                            <div className="flex items-center space-x-2 space-x-reverse">
                               <Smartphone className="w-4 h-4" />
                               <span className="text-sm font-medium">Apple Wallet</span>
                             </div>
@@ -1270,7 +1270,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                   <h3 className="text-lg font-bold text-gray-900">المكافآت</h3>
                   <button 
                     onClick={() => setShowRewardModal(true)}
-                    className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
+                    className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl hover:from-purple-700 hover:to-purple-800 transition-colors"
                   >
                     <Plus className="w-4 h-4" />
                     <span>إضافة مكافأة</span>
@@ -1284,7 +1284,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                         <div className="flex-1">
                           <h4 className="font-bold text-gray-900 mb-1">{reward.title}</h4>
                           <p className="text-sm text-gray-600 mb-2">{reward.description}</p>
-                          <div className="flex items-center space-x-2">
+                          <div className="flex items-center space-x-2 space-x-reverse">
                             <span className="px-3 py-1 bg-purple-100 text-purple-800 text-xs rounded-full">
                               {reward.category}
                             </span>
@@ -1394,7 +1394,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                   <h4 className="text-lg font-bold text-gray-900 mb-4">إعدادات المستويات</h4>
                   <div className="space-y-4">
                     {Object.entries(storeSettings.levels).map(([level, config]) => (
-                      <div key={level} className="flex items-center space-x-4 p-4 bg-gray-50 rounded-xl">
+                      <div key={level} className="flex items-center space-x-4 space-x-reverse p-4 bg-gray-50 rounded-xl">
                         <div 
                           className="w-6 h-6 rounded-full"
                           style={{ backgroundColor: config.color }}
@@ -1402,7 +1402,7 @@ const LoyaltySystem: React.FC<LoyaltySystemProps> = ({ onBack }) => {
                         <div className="flex-1">
                           <span className="font-medium">{config.name}</span>
                         </div>
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 space-x-reverse">
                           <span className="text-sm text-gray-600">من</span>
                           <input
                             type="number"

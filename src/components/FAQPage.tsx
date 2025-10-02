@@ -128,16 +128,16 @@ const FAQPage: React.FC<FAQPageProps> = ({ onBack }) => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100" dir="rtl">
       {/* Header */}
       <header className="backdrop-blur-xl bg-white/80 dark:bg-gray-800/80 border-b border-purple-100 dark:border-gray-700 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 space-x-reverse">
               {onBack && (
                 <button
                   onClick={onBack}
-                  className="flex items-center space-x-2 space-x-reverse px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+                  className="flex items-center space-x-2 space-x-reverse space-x-reverse px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
                   <span>العودة</span>
@@ -268,17 +268,17 @@ const FAQPage: React.FC<FAQPageProps> = ({ onBack }) => {
           <p className="mb-6 opacity-90">فريق الدعم جاهز لمساعدتك في أي وقت</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="flex items-center justify-center space-x-3 px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
+            <button className="flex items-center justify-center space-x-3 space-x-reverse px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
               <MessageCircle className="w-5 h-5" />
               <span>تواصل عبر الواتساب</span>
             </button>
             
-            <button className="flex items-center justify-center space-x-3 px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
+            <button className="flex items-center justify-center space-x-3 space-x-reverse px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
               <Mail className="w-5 h-5" />
               <span>أرسل إيميل</span>
             </button>
             
-            <button className="flex items-center justify-center space-x-3 px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
+            <button className="flex items-center justify-center space-x-3 space-x-reverse px-6 py-3 bg-white/20 hover:bg-white/30 rounded-xl transition-colors">
               <Phone className="w-5 h-5" />
               <span>اتصل بنا</span>
             </button>
